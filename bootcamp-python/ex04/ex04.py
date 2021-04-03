@@ -1,16 +1,9 @@
 import sys
-sys.argv[1]=("entrez 1er nombre:")
-sys.argv[2]=("entrez le 2eme nombre:")
-n1=sys.argv[1]
-n2=sys.argv[2]
+n1=int(sys.argv[1])
+n2=int(sys.argv[2])
 i=len(sys.argv)
-j=0
-##while type(n1)==int and type(n2)==int:
-try:
-        n1=int(n1)
-        n2=int(n2)
-        for j in range(i):
-            while j<=i:
+if i<=3:
+    if type(n1)==int and type(n2)==int:
                 print("sum=",n1+n2)
                 if n1>n2:
                     print("diff",n1-n2)
@@ -25,6 +18,5 @@ try:
                     print("remainder",n1 % n2)
                 else:
                     print("ERROR")
-except ValueError:
-        print("ERROR") 
-print("only numbers") 
+if type(n1)!=int or type(n2)!=int:
+        print("only numbers") 
