@@ -1,36 +1,25 @@
 import string
 import sys
-def words_pythonest(text,n):
-    words=[]
-    c=""
-    j=0
-    while text[j].isspace():
-        j+=1
-    for i in range(j,len(text)):
-        if text[i].isalpha():
-            c+=text[i]
-            if i==len(text)-1:
-                words.append(c)
+
+if len(sys.argv) == 3:
+    n1 = str(sys.argv[1])
+    n2 = int(sys.argv[2])
+    try:
+        if len(sys.argv) == 3:
+            n1=sys.argv[1]
+            n2=sys.argv[2]
+            L=[]
+        n1=str(n1)
+        n2=int(n2)
+        word = n1.split()
+        if type(n1)==str and  type(n2)==int:
+            for t in word:
+                if len(t) > n2:
+                    print(t)
+                    L.append(word)
         else:
-            if text[i].isspace() and text[i-1].isalpha() or (text[i] in string.punctuation):
-                words.append(c)
-            c=""
-    words_sorted=[]
-    for i in words:
-        if len(i)>n:
-            words_sorted.append(i)
-    return words_sorted
-    if __name__=='__main__':
-        if len(sys.argv)>3:
-            print("More than 2 arguments")
-        elif len(sys.argv)>3:
-            print("entrez 2 arguments")
-        else:
-            if sys.argv[1].isdigit():
-                print("ERROR")
-            else:
-                if sys.argv[2].isdigit():
-                    print(words_pythonest(sys.argv[1].int(sys.argv[2])))
-                else:
-                    print("ERROR")
-                    
+            print("ERROR")
+    except ValueError:
+        print("ERROR")
+else:
+    print("ERROR")
