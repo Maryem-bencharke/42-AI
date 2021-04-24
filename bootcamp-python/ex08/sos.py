@@ -1,5 +1,6 @@
-import sys
-MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
+def morse(txt):
+
+    MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
                     'F':'..-.', 'G':'--.', 'H':'....',
                     'I':'..', 'J':'.---', 'K':'-.-',
@@ -14,33 +15,8 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '0':'-----', ', ':'--..--', '.':'.-.-.-',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
-def switch(word):
-    c=' '
-    for letter in word:
-        if letter !=' ':
-            c+= MORSE_CODE_DICT + ' '
-        else:
-            c+=' '
-    return c
-def switch2(word):
-    word +=' '
-    d= ''
-    b=''
-    for letter in word:
-        if letter !='':
-            i=0
-            b += letter
-        else:
-            i +=1
-            if i==2:
-                d +=' '
-            else:
-                d += list(MORSE_CODE_DICT.keys()) [list(MORSE_CODE_DICT.values()).index(b)]
-                b=''
-    return d
-if __name__=='__main':
-    if len(sys.argv)>2 or len(sys.argv)<2:
-        print('ERROR')
-    if len(sys.argv)==2:
-        print(switch2(sys.argv[1]))
-        
+    decrypt={value: key for key, value in MORSE_CODE_DICT.items}
+
+    if '-' in txt:
+        return''.join(decrypt[i] for i in txt.split())
+    return ' '.join(MORSE_CODE_DICT[i] for i in txt.upper())
